@@ -17,10 +17,10 @@ RSpec.describe Api::V1::GamesController, type: :controller do
             get :index
             returned_json = JSON.parse(response.body)
 
-            expect(returned_json["game"].length).to eq 3
-            expect(returned_json["game"][0]["title"]).to eq game1.title
-            expect(returned_json["game"][1]["title"]).to eq game2.title
-            expect(returned_json["game"][2]["title"]).to eq game3.title
+            expect(returned_json.length).to eq 3
+            expect(returned_json[0]["title"]).to eq game1.title
+            expect(returned_json[1]["title"]).to eq game2.title
+            expect(returned_json[2]["title"]).to eq game3.title
         end
     end
 end
