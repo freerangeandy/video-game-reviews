@@ -2,11 +2,11 @@ require "rails_helper"
 
 describe Game do
   let(:title) { "Valid Title" }
-  let(:description) { "Valid description text" }
+  let(:image) { "Valid image text" }
   let(:game) do
     Game.new({
       title: title,
-      description: description
+      image: image
     })
   end
 
@@ -32,13 +32,13 @@ describe Game do
     end
   end
 
-  describe "#description" do
-    it "should return the description" do
-      expect(game.description).to eq(description)
+  describe "#image" do
+    it "should return the image" do
+      expect(game.image).to eq(image)
     end
 
     it "should return nil for an game initialized without arguments" do
-      expect(game_initialized_without_arguments.description).to eq(nil)
+      expect(game_initialized_without_arguments.image).to eq(nil)
     end
   end
 
@@ -46,28 +46,28 @@ describe Game do
     it "should return an array of Game objects from the database" do
       first_game_data = [
         "Valid Title 1",
-        "Valid description text 1"
+        "Valid image text 1"
       ]
 
       last_game_data = [
         "Valid Title 2",
-        "Valid description text 2"
+        "Valid image text 2"
       ]
 
-      Game.create(title: first_game_data.first, description: first_game_data.last)
-      Game.create(title: last_game_data.first, description: last_game_data.last)
+      Game.create(title: first_game_data.first, image: first_game_data.last)
+      Game.create(title: last_game_data.first, image: last_game_data.last)
 
       games = Game.all
 
       first_game = games.first
       first_game_attributes = [
         first_game.title,
-        first_game.description,
+        first_game.image,
       ]
       last_game = games.last
       last_game_attributes = [
         last_game.title,
-        last_game.description
+        last_game.image
       ]
 
       expect(games.length).to eq(2)
@@ -98,7 +98,7 @@ describe Game do
 
     context "for an invalid object" do
       let(:game_with_blank_attributes) do
-        Game.new({ title: "", description: "" })
+        Game.new({ title: "", image: "" })
       end
 
       let(:missing_title_message) {"Title can't be blank"}
@@ -125,7 +125,7 @@ describe Game do
 
         game_attributes = [
           game.title,
-          game.description
+          game.image
         ]
 
         games_data = nil
@@ -134,13 +134,13 @@ describe Game do
         game_data = games_data.last
 
         expect(game_attributes[0]).to eq(game_data["title"])
-        expect(game_attributes[1]).to eq(game_data["description"])
+        expect(game_attributes[1]).to eq(game_data["image"])
       end
     end
 
     context "invalid object" do
       let(:game_with_blank_attributes) do
-        Game.new({ title: "", description: "" })
+        Game.new({ title: "", image: "" })
       end
 
       it "should return false" do

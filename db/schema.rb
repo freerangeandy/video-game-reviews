@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_143757) do
 
   create_table "games", force: :cascade do |t|
     t.string "title", null: false
+    t.string "image"
+    t.string "number_of_players"
     t.string "description"
-    t.string "creater"
+    t.string "creator"
     t.string "platform"
     t.string "genre"
     t.string "site"
