@@ -3,10 +3,6 @@ import React, { useState, useEffect } from "react"
 import GamesIndexPane from "../components/GamesIndexPane"
 
 const GamesIndexContainer = props => {
-<<<<<<< HEAD
-  return(
-    <div> Hello from GamesIndexContainer </div>
-=======
   const [games, setGames] = useState([])
 
   useEffect(() => {
@@ -31,7 +27,6 @@ const GamesIndexContainer = props => {
     <div className="grid-container game-index-margin">
       <GamesIndexPane gamesList={games} />
     </div>
->>>>>>> c06be150b91f1937a1924ae990dfc83a2d87f002
   )
 }
 

@@ -1,30 +1,24 @@
-import React, { Fragment }  from 'react'
+import React from 'react'
 
-const GamesShowComponent = props => {
-  const title = props.game.title
-  const image = props.game.image
-  const description = props.game.description
-  const creator = props.game.creator
-  const platform = props.game.platform
-  const genre = props.game.genre
-  const site = props.game.site
-  const release_date = props.game.release_date
-  const created_at = props.game.created_at
+const GamesShowComponent = ({game}) => {
+  const { title, image, description, creator, platform, genre,
+        number_of_players, site, release_date, created_at } = game
 
   return (
-    <>
-      <h2> Hello from GamesShowComponent </h2>
+    <div>
+      <h3>Title: {title}</h3>
+      <img src={image}></img>
+      <p>Description: {description}</p>
+      <ul>
+        <li>Creator: {creator}</li>
+        <li>Platform: {platform}</li>
+        <li>Genre: {genre}</li>
+        <li>Player Setup: {number_of_players}</li>
+        <li>Site: {site}</li>
+        <li>Release Date: {release_date}</li>
 
-      <div><h3>{title}</h3></div>
-      <div><img src={image}></img></div>
-      <div><h3>{description}</h3></div>
-      <div><h3>{creator}</h3></div>
-      <div><h3>{platform}</h3></div>
-      <div><h3>{genre}</h3></div>
-      <div><h3>{site}</h3></div>
-      <div><h3>{release_date}</h3></div>
-      <div><h3>{created_at}</h3></div>
-    </>
+      </ul>
+    </div>
   )
 }
 

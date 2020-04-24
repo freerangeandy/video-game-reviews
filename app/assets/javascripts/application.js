@@ -13,11 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-<<<<<<< HEAD
 //= require_tree .
-=======
-//= require_tree
->>>>>>> c06be150b91f1937a1924ae990dfc83a2d87f002
 
 $(function(){ $(document).foundation(); });
-

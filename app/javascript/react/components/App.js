@@ -10,7 +10,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/games" component={GamesIndexContainer}/>
         <Route exact path="/games/:id" component={GamesShowContainer}/>
-        <Route path="/" component={GamesIndexContainer}/>
+        <Route exact path="/" component={GamesIndexContainer}/>
       </Switch>
     </BrowserRouter>
   )

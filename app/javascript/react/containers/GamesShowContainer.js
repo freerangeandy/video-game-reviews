@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react"
-import { checkPropTypes } from "prop-types"
+import React, { useState, useEffect } from "react"
 import GamesShowComponent from "./../components/GamesShowComponent"
 
 const GamesShowContainer = props => {
@@ -35,11 +34,8 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-
   return(
-    <>
       <GamesShowComponent game = {game} />
-    </>
   )
 }
 
