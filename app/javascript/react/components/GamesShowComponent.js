@@ -16,7 +16,6 @@ const GamesShowComponent = ({game}) => {
         <li>Player Setup: {number_of_players}</li>
         <li>Site: {site}</li>
         <li>Release Date: {release_date}</li>
-
       </ul>
     </div>
   )
