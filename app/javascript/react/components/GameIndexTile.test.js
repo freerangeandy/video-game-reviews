@@ -5,17 +5,17 @@ import GameIndexTile from "./GameIndexTile"
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("GamesIndexTile", () => {
-    let wrapper
-    let testGame
-  
-    beforeEach(() => {
-      testGame = { id: 1, title: "Zelda" }
-      wrapper = mount(
-        <GameIndexTile game={testGame} />
-      )
-    })
+  let wrapper
+  let testGame
 
-    it("should render an h4 element containing the title of the game received via props", () => {
-        expect(wrapper.find("h4").text()).toBe(testGame.title)
-    })
+  beforeEach(() => {
+    testGame = { id: 1, title: "Zelda" }
+    wrapper = mount(
+      <GameIndexTile game={testGame} />
+    )
+  })
+
+  it("should render an h4 element containing the title of the game received via props", () => {
+      expect(wrapper.find("h4").text()).toBe(testGame.title)
+  })
 })
