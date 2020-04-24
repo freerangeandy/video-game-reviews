@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_201107) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating", null: false
     t.text "comment"
-    t.bigint "game_id"
+    t.bigint "game_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_reviews_on_game_id"

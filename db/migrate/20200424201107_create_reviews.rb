@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
     create_table :reviews do |t|
       t.integer :rating, null: false
       t.text :comment
-      t.belongs_to :game
+      t.belongs_to :game, null: false
 
       t.timestamps null: false
     end
