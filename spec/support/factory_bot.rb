@@ -9,6 +9,13 @@ FactoryBot.define do
   end
 
   factory :game do
-    sequence(:title) {|n| "game#{n}"}
+    sequence(:title) {|n| "title#{n}"}
+    sequence(:image) {|n| "image#{n}"}
+    sequence(:description) {|n| "description#{n}"}
+    sequence(:creator) {|n| "creator#{n}"}
+    sequence(:platform) {|n| "platform#{n}"}
+    sequence(:genre) {|n| "genre#{n}"}
+    sequence(:site) {|n| "site#{n}"}
+    sequence(:release_date) {|n| "release_date#{n}"}
   end
 end

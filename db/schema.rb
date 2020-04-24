@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 2020_04_22_181952) do
 
   create_table "games", force: :cascade do |t|
     t.string "title", null: false
-    t.string "description"
-    t.string "creater"
-    t.string "platform"
-    t.string "genre"
-    t.string "site"
-    t.date "release_date"
+    t.string "image"
+    t.string "number_of_players", default: "Data not provided"
+    t.string "description", default: "Data not provided"
+    t.string "creator", default: "Data not provided"
+    t.string "platform", default: "Data not provided"
+    t.string "genre", default: "Data not provided"
+    t.string "site", default: "Data not provided"
+    t.string "release_date", default: "Data not provided"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
