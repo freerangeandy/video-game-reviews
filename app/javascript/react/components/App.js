@@ -1,7 +1,17 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+import GamesIndexContainer from "../containers/GamesIndexContainer"
+
+const App = (props) => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/games" component={GamesIndexContainer}/>
+        <Route path="/" component={GamesIndexContainer}/>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App

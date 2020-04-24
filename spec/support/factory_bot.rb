@@ -8,4 +8,7 @@ FactoryBot.define do
     password_confirmation { 'password' }
   end
 
+  factory :game do
+    sequence(:title) {|n| "game#{n}"}
+  end
 end
