@@ -3,6 +3,10 @@ class Api::V1::GamesController < ApplicationController
     render json: Game.all
   end
 
+  def show
+    render json: Game.find(params[:id])
+  end
+
   def create
     game = Game.new(game_params)
 
