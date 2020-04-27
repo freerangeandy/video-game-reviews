@@ -26,10 +26,35 @@
     margin-top: 25px;
 }
 
+.top-bar {
+  background-color: #D8C3A5;
+}
+
+#top-bar-title {
+  color: #E85A4F;
+}
+
 body {
-    background-color: #D1CEFF;
+    background-color: #EAE7DC;
 }
 
 h4 {
     text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.small-6 {
+  border: solid;
+  border-color: #8E8D8A;
+}
+
+.sign {
+  color: blue;
 }
