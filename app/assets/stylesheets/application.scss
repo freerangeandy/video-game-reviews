@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
  *= require foundation_and_overrides
 
@@ -65,18 +65,36 @@ h4 {
     background-color: $color2;
   }
   
-  li::before {
+  li:nth-child(n+1)::before {
     content: "🎮 ";
   }
 
+
+  li:nth-child(n+2)::before {
+    content: "🕹 ";
+  }
 }
 
-a {
-  font-family: chalkduster;
-  text-shadow: 4px 4px #000000;
-  font-style: italic;
-  font-weight: 600;
-  color: $color1;
+nav {
+  h1 {
+    font-family: chalkduster;
+    text-shadow: 4px 4px #000000;
+    font-style: italic;
+    font-weight: 600;
+    a {
+      color: $color1;
+    }
+  }
+}
+
+li {
+  a {
+    text-shadow: 1px 1px #000000;
+    font-family: chalkduster;
+    font-style: italic;
+    font-weight: 600;
+    color: $color1;
+  }
 }
 
 a:hover {
