@@ -58,3 +58,12 @@ p {
 .sign {
   color: blue;
 }
+
+.top-bar {
+    padding: 1rem;
+}
+
+#app {
+    margin: 1rem;
+    margin-bottom: 2rem;
+}
