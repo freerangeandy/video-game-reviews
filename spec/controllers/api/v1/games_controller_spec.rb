@@ -61,7 +61,6 @@ RSpec.describe Api::V1::GamesController, type: :controller do
 
       prev_count = Game.count
 
-
       post :create, params: post_json, format: :json
       expect(Game.count).to eq(prev_count + 1)
     end
@@ -108,9 +107,13 @@ RSpec.describe Api::V1::GamesController, type: :controller do
 
       prev_count = Game.count
       post(:create, params: post_json)
-      expect(Game.count).to eq(prev_count)
+      returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+
+      expect(returned_json["error"]).to eq "Title can't be blank"
+      expect(Game.count).to eq(prev_count)
     end
   end
 end

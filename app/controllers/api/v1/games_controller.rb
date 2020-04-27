@@ -13,7 +13,7 @@ class Api::V1::GamesController < ApplicationController
     if game.save
       render json: game
     else
-      render json: {error: "Game did not save"}
+      render json: {error: game.errors.full_messages.to_sentence}
     end
   end
 
