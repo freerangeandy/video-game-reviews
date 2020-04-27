@@ -20,6 +20,7 @@ class Api::V1::GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:title, :description, :creater, :platform, :genre, :site, :release_date)
+    params.require(:game).permit(:title, :image, :number_of_players, :description, :creator, :platform, :genre, :site, :release_date)
   end
+
 end
