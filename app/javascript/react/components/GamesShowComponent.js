@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const GamesShowComponent = ({game}) => {
   const { title, image, description, creator, platform, genre,
@@ -14,7 +15,7 @@ const GamesShowComponent = ({game}) => {
         <li>Platform: {platform}</li>
         <li>Genre: {genre}</li>
         <li>Player Setup: {number_of_players}</li>
-        <li>Site: {site}</li>
+        <li>Site: <a href={site}>{site}</a></li>
         <li>Release Date: {release_date}</li>
       </ul>
     </div>
