@@ -11,9 +11,11 @@ import React from "react"
 
     return (
       <div className="cell small-4 game-tile">
-        <div className="small-12 container">
-          <img src={src}></img>
-          <h4 className="centered">{props.game.title}</h4>
+        <div className="small-12">
+          <div className="container">
+            <img src={src}></img>
+          </div>
+          <h4>{props.game.title}</h4>
         </div>
       </div>
     )

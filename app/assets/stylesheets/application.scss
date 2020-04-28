@@ -17,11 +17,27 @@
  */
 
 @import 'styleguide';
+
+/*  FONTS  */
+@font-face {
+  font-family: arcade;
+  src: url('fonts/arcade/ARCADE_I.TTF');
+}
+
+@font-face {
+  font-family: arcade-n;
+  src: url('fonts/arcade/ARCADE_N.TTF');
+}
+
 /*  GLOBAL STYLES */
 body {
+  // background-color: $color4;
+
+  // background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1ZiFS?ver=4902&q=90&m=6&h=600&w=1600&b=%23FFFFFFFF&l=f&f=jpg&o=t&aim=true");
+
   background-image:
   linear-gradient(
-    $color3, $color5
+    $color4, $color5
   );
 }
 
@@ -34,28 +50,15 @@ h4 {
   text-align: center;
 }
 
-.form-container{
-  display: flex;
-  align-items: center; 
-  form {
-    width: 50%;
-  }
-}
+// .form-container{
+//   display: flex;
+//   align-items: center; 
+// }
 
-.two-field-row {
-  width: 100%;
-  display: flex;
-
-  div {
-    display: inline-block;
-    width: 50%;
-  }
-  div:nth-child(2) {
-    margin-left: 1rem;
-  }  
-}
 /*  NAVIGATION */
 nav {
+  // background-image: url(http://www.immersedgames.com/wp-content/uploads/2016/03/Characters.jpg);
+  // background-position: center;
   h1 {
     font-family: chalkduster;
     text-shadow: 4px 4px #000000;
@@ -72,28 +75,46 @@ nav {
   padding: 1rem;
 }
 
+.user-name-display {
+  font-family: arcade-n;
+  font-weight: bold;
+  background-color: $color2;
+  margin-bottom: 0;
+}
+
 /*  GAMES INDEX PAGE */
 .game-tile {
+
   img {
-    opacity: 0.67;
+    // opacity: 0.67;
+    margin-top: 1rem;
     display: inline-block;
     vertical-align: middle;
-    width:100%;
-    height:100%;
-    border-radius: 10px;
+    width: 250px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
   }
+
   h4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     line-height: 1rem;
     font-size: small;
     font-weight: 800;
     // color: $color1;
-    color: white;
+    color: $color1;
     // mix-blend-mode:;
+    font-family: arcade;
+    text-shadow: 1px 1px #000000;
   }
+
   height: 300px;
   width: 200px;
-  // background-color: $color3;
+  background-color: $color2;
   margin: auto;
+  border-radius: 15px;
   // background-color: #59BFFF;
 }
 
@@ -176,5 +197,46 @@ a:hover {
 }
 
 label {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: arcade-n;
+  // font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: $color1;
+  text-shadow: 1px 1px #000000;
+}
+
+.log {
+  text-align: center;
+  padding: 1rem;
+  h2 {
+    color: $color1;
+    font-family: arcade;
+    text-shadow: 2px 2px #000000;
+  }
+}
+
+#new_user {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.deviselinks {
+  a {
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 2rem;
+  }
+}
+
+.vertical { 
+  resize: vertical; 
+}
+
+em {
+  font-family: arcade-n;
+  // font-family: 'Times New Roman', Times, serif;
+  font-size: 10px;
+  font-style: italic;
+  color: $color1;
+  text-shadow: 1px 1px #000000;
 }
