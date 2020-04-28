@@ -13,10 +13,8 @@ const GamesShowContainer = props => {
     genre: "",
     site: "",
     release_date: "",
-    created_at: "",
-    updated_at: ""
+    reviews: []
   })
-  const [reviews, setReviews] = useState([])
 
   let gameID = props.match.params.id
 
@@ -32,40 +30,24 @@ const GamesShowContainer = props => {
       }
     })
     .then(response => response.json())
-    .then(parsedJSON => setGame(parsedJSON))
+    .then(game => {
+      setGame(game)
+    })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  useEffect(() => {
-    fetch(`/api/v1/games/${gameID}/reviews.json`)
-    .then((response) => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status}: ${response.statusText}`
-        let error = new Error(errorMessage)
-        throw(error)
-      }
+  let newReviews = null
+  if (game.reviews.length > 0) {
+    newReviews = game.reviews.map((review) => {
+      return(
+        <ReviewIndexTile
+        key={review.id}
+        rating={review.rating}
+        comment={review.comment}
+        />
+      )
     })
-    .then((response) => {
-      return response.json()
-    })
-    .then((reviews) => {
-      setReviews(reviews)
-    })
-    .catch((error) => {
-      console.error(`Error in fetching reviews: ${error.message}`)
-    })
-  }, [])
-
-  const newReviews = reviews.map((review) => {
-    return(
-      <ReviewIndexTile
-      rating={review.rating}
-      comment={review.comment}
-      />
-    )
-  })
+  }
 
   return(
     <div className="grid-container">
