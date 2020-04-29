@@ -56,6 +56,14 @@ RSpec.describe Api::V1::GamesController, type: :controller do
       post_json = {
         game: {
           title: "Basset Hound Shakes Off",
+          image: "https://media.giphy.com/media/WjjXDenYaxQys/giphy.gif",
+          number_of_players: "1 human, 1 dog",
+          description: "It's right there in the title",
+          creator: "Doggy",
+          platform: "PC",
+          genre: "Puzzle",
+          site: "http://www.dogdogdog.com/",
+          release_date: "April 18, 2011"
         }
       }
 
