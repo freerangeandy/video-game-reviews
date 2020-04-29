@@ -184,7 +184,6 @@ a:hover {
   margin: auto;
   background-color: $color2;
   border-width: 0;
-  border-radius: 10px;
 }
 
 label {
@@ -212,9 +211,10 @@ label {
 
 .deviselinks {
   a {
+    color: $color4;
     font-size: x-large;
     font-family: 'Times New Roman', Times, serif;
-    margin: 2rem;
+    margin: 2.5rem;
   }
 }
 
@@ -228,4 +228,14 @@ em {
   font-style: italic;
   color: $color4;
   text-shadow: 1px 1px #000000;
+}
+
+.showtext {
+  color: $color5;
+  font-family: arcade-n;
+  text-shadow: 1px 1px #000000;
+  h3 {
+    font-family: arcade-n;
+    text-shadow: 2px 2px #000000;
+  }
 }

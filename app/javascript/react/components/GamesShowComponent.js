@@ -5,16 +5,16 @@ const GamesShowComponent = ({game}) => {
         number_of_players, site, release_date, created_at } = game
 
   return (
-    <div>
+    <div className="showtext">
       <h3>Title: {title}</h3>
       <img src={image}></img>
-      <p>Description: {description}</p>
       <ul>
+        <li>Description: {description}</li>
         <li>Creator: {creator}</li>
         <li>Platform: {platform}</li>
         <li>Genre: {genre}</li>
         <li>Player Setup: {number_of_players}</li>
-        <li>Site: {site}</li>
+        <li>Site: <a href={site}>{site}</a></li>
         <li>Release Date: {release_date}</li>
       </ul>
     </div>
