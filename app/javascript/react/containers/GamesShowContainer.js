@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import GamesShowComponent from "./../components/GamesShowComponent"
+import ReviewIndexTile from "./../components/ReviewIndexTile"
 
 const GamesShowContainer = props => {
-  const [ game, setGame ] = useState({
+  const [game, setGame] = useState({
     title: "",
     image: "",
     number_of_players: "",
@@ -12,8 +13,7 @@ const GamesShowContainer = props => {
     genre: "",
     site: "",
     release_date: "",
-    created_at: "",
-    updated_at: ""
+    reviews: []
   })
 
   let gameID = props.match.params.id
@@ -30,12 +30,30 @@ const GamesShowContainer = props => {
       }
     })
     .then(response => response.json())
-    .then(parsedJSON => setGame(parsedJSON))
+    .then(game => {
+      setGame(game)
+    })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  let newReviews = null
+  if (game.reviews.length > 0) {
+    newReviews = game.reviews.map((review) => {
+      return(
+        <ReviewIndexTile
+        key={review.id}
+        rating={review.rating}
+        comment={review.comment}
+        />
+      )
+    })
+  }
+
   return(
+    <div className="grid-container">
       <GamesShowComponent game = {game} />
+      {newReviews}
+    </div>
   )
 }
 
