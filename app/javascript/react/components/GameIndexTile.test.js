@@ -3,6 +3,7 @@ import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 import GameIndexTile from "./GameIndexTile"
 Enzyme.configure({ adapter: new Adapter() })
+import { BrowserRouter } from 'react-router-dom'
 
 describe("GamesIndexTile", () => {
   let wrapper
@@ -11,7 +12,9 @@ describe("GamesIndexTile", () => {
   beforeEach(() => {
     testGame = { id: 1, title: "Zelda" }
     wrapper = mount(
-      <GameIndexTile game={testGame} />
+      <BrowserRouter>
+        <GameIndexTile game={testGame} />
+      </BrowserRouter>
     )
   })
 
