@@ -15,30 +15,3 @@
  *= require foundation_and_overrides
 
  */
-
-.game-tile {
-    border: 1px solid;
-    height: 300px;
-    background-color: #59BFFF;
-}
-
-.game-index-margin {
-    margin-top: 25px;
-}
-
-body {
-    background-color: #D1CEFF;
-}
-
-h4 {
-    text-align: center;
-}
-
-.top-bar {
-    padding: 1rem;
-}
-
-#app {
-    margin: 1rem;
-    margin-bottom: 2rem;
-}

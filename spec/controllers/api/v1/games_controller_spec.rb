@@ -4,7 +4,7 @@ RSpec.describe Api::V1::GamesController, type: :controller do
   let!(:game1) { FactoryBot.create(:game) }
   let!(:game2) { FactoryBot.create(:game) }
   let!(:game3) { FactoryBot.create(:game) }
-  
+
   describe "GET#index" do
     it "returns a successful response status and a content type of JSON" do
       get :index
@@ -37,7 +37,7 @@ RSpec.describe Api::V1::GamesController, type: :controller do
       get :show, params: {id: game1.id}
       returned_json = JSON.parse(response.body)
 
-      expect(returned_json.length).to eq 12
+      expect(returned_json.length).to eq 11
       expect(returned_json["title"]).to eq game1.title
       expect(returned_json["image"]).to eq game1.image
       expect(returned_json["number_of_players"]).to eq game1.number_of_players
@@ -56,6 +56,14 @@ RSpec.describe Api::V1::GamesController, type: :controller do
       post_json = {
         game: {
           title: "Basset Hound Shakes Off",
+          image: "https://media.giphy.com/media/WjjXDenYaxQys/giphy.gif",
+          number_of_players: "1 human, 1 dog",
+          description: "It's right there in the title",
+          creator: "Doggy",
+          platform: "PC",
+          genre: "Puzzle",
+          site: "http://www.dogdogdog.com/",
+          release_date: "April 18, 2011"
         }
       }
 
@@ -66,16 +74,16 @@ RSpec.describe Api::V1::GamesController, type: :controller do
     end
 
     it "returns the json of the newly posted game" do
-      post_json = { 
+      post_json = {
         game: {
           title: "Basset Hound Shakes Off",
           image: "https://media.giphy.com/media/WjjXDenYaxQys/giphy.gif",
           number_of_players: "1 human, 1 dog",
           description: "It's right there in the title",
           creator: "Doggy",
-          platform: "PC", 
-          genre: "Puzzle", 
-          site: "http://www.dogdogdog.com/", 
+          platform: "PC",
+          genre: "Puzzle",
+          site: "http://www.dogdogdog.com/",
           release_date: "April 18, 2011"
         }
       }
