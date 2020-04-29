@@ -37,15 +37,18 @@ const ReviewNewForm = (props) => {
 
   const validForSubmission = () => {
     let submitErrors = {}
-    const requiredFields = ["rating", "comment"]
-    requiredFields.forEach(field => {
-      if (formPayload[field].trim() === "") {
-        submitErrors = {
-          ...submitErrors,
-          [field]: "is blank"
-        }
-      }
-    });
+    let ratingErrors = ""
+
+    const rating = parseFloat(formPayload.rating)
+
+    if ((formPayload.rating < 1 || formPayload.rating > 5) || isNaN(rating)) {
+      ratingErrors = "must be a number between 1 and 5"
+      submitErrors = {
+        ...submitErrors,
+        rating: ratingErrors
+      }   
+    }
+
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
