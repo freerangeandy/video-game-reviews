@@ -1,11 +1,11 @@
 .game-tile {
-    border: 1px solid;
-    height: 300px;
-    background-color: #59BFFF;
+  border: 1px solid;
+  height: 300px;
+  background-color: #59BFFF;
 }
 
 .game-index-margin {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .top-bar {
@@ -17,11 +17,11 @@
 }
 
 body {
-    background-color: #EAE7DC;
+  background-color: #EAE7DC;
 }
 
 h4 {
-    text-align: center;
+  text-align: center;
 }
 
 h3 {
@@ -42,10 +42,10 @@ p {
 }
 
 .top-bar {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 #app {
-    margin: 1rem;
-    margin-bottom: 2rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
 }
