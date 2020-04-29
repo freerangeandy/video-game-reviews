@@ -18,4 +18,9 @@ FactoryBot.define do
     sequence(:site) {|n| "site#{n}"}
     sequence(:release_date) {|n| "release_date#{n}"}
   end
+
+  factory :review do
+    sequence(:rating) {|n| n}
+    sequence(:comment) {|n| "comment#{n}"}
+  end
 end
