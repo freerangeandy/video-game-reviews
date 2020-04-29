@@ -4,6 +4,7 @@ import ReviewIndexTile from "./../components/ReviewIndexTile"
 import ReviewNewForm from "./../components/ReviewNewForm"
 
 const GamesShowContainer = props => {
+  const [reviews, setReviews] = useState([])
   const [game, setGame] = useState({
     title: "",
     image: "",
@@ -13,8 +14,7 @@ const GamesShowContainer = props => {
     platform: "",
     genre: "",
     site: "",
-    release_date: "",
-    reviews: []
+    release_date: ""
   })
 
   let gameID = props.match.params.id
@@ -33,6 +33,7 @@ const GamesShowContainer = props => {
     .then(response => response.json())
     .then(game => {
       setGame(game)
+      setReviews(game.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -58,21 +59,17 @@ const GamesShowContainer = props => {
     })
     .then(response => response.json())
     .then(newReview => {
-      const existingReviews = game.reviews
-      setGame({
-        ...game,
-        reviews: [
-          ...existingReviews,
-          newReview
-        ]
-      })
+      setReviews([
+        ...reviews,
+        newReview
+      ])
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   let newReviews = null
-  if (game.reviews.length > 0) {
-    newReviews = game.reviews.map((review) => {
+  if (reviews.length > 0) {
+    newReviews = reviews.map((review) => {
       return(
         <ReviewIndexTile
         key={review.id}
@@ -85,7 +82,7 @@ const GamesShowContainer = props => {
 
   return(
     <div className="grid-container">
-      <GamesShowComponent game = {game} />
+      <GamesShowComponent game={game} />
       <ReviewNewForm 
         gameID={gameID} 
         fetchPostNewReview={fetchPostNewReview}
