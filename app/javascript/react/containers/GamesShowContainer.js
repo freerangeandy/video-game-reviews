@@ -50,7 +50,7 @@ const GamesShowContainer = props => {
   }
 
   return(
-    <div className="grid-container">
+    <div className="grid-container showbg">
       <GamesShowComponent game = {game} />
       {newReviews}
     </div>

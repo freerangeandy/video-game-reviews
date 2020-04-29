@@ -14,8 +14,8 @@ const GamesShowComponent = ({game}) => {
         <li>Platform: {platform}</li>
         <li>Genre: {genre}</li>
         <li>Player Setup: {number_of_players}</li>
-        <li>Site: <a href={site}>{site}</a></li>
         <li>Release Date: {release_date}</li>
+        <li>Site: <a href={site}>{site}</a></li>
       </ul>
     </div>
   )
