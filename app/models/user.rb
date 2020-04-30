@@ -7,4 +7,8 @@ class User < ApplicationRecord
   mount_uploader :profile_photo, ProfilePhotoUploader
 
   validates :user_name, presence: true
+
+  def admin?
+    role == "admin"
+  end
 end
