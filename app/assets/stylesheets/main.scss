@@ -260,7 +260,6 @@ em {
   margin-bottom: 2rem;
 }
 
-
 .user-pic-thumbnail {
   width: 25px;
   height: 25px;
@@ -269,4 +268,29 @@ em {
 
 .current-user {
   float: right;
+}
+
+.profile-pic {
+  margin: 15px;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+.user-info {
+  h1 {
+    font-family: chalkduster;
+    text-shadow: 4px 4px #000000;
+    font-style: italic;
+    font-weight: 600;
+    color: $color1;
+  }
+  h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+}
+
+.user-reviews {
+  margin: 2rem;
 }

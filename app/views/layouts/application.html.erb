@@ -15,10 +15,10 @@
       <ul class="right">
         <%- if current_user -%>
           <li>
-            <a href="/users/:id">
-                <%- if current_user.profile_photo -%>
-                  <img class="user-pic-thumbnail" src=<%= current_user.profile_photo %> ></img>
-                <%- end -%>
+            <a href="/users/<%= current_user.id %>">
+              <%- if current_user.profile_photo -%>
+                <img class="user-pic-thumbnail" src=<%= current_user.profile_photo %> ></img>
+              <%- end -%>
               <span class="current-user">
                 <h5 class="user-name-display">
                   <%= current_user.user_name %>
