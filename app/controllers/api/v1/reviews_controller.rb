@@ -29,7 +29,7 @@ class Api::V1::ReviewsController < ApplicationController
 
   def authorize_user
     if !user_signed_in || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
+      render json: {error: "Not available"}
     end
   end
 end

@@ -74,7 +74,7 @@ const NewGameFormComponent = props => {
           <div className="grid-x grid-margin-x">
             <div className="cell small-6">
               <label htmlFor="creator">Creator</label>
-              <input type="text" name="creator" id="creator" onChange={handleChange} value={newGameFormData.creater} />
+              <input type="text" name="creator" id="creator" onChange={handleChange} value={newGameFormData.creator} />
             </div>
             <div className="cell small-6">
               <label htmlFor="platform">Platform</label>
@@ -91,7 +91,7 @@ const NewGameFormComponent = props => {
               <input type="text" name="release_date" id="release_date" onChange={handleChange} value={newGameFormData.release_date} />
             </div>
           </div>
- 
+
           <label htmlFor="site">Website URL</label>
           <input type="text" name="site" id="site" onChange={handleChange} value={newGameFormData.site} />
 
