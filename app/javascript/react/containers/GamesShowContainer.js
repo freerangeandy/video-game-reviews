@@ -38,6 +38,32 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  const fetchUpdateReview = (editPayload) => {
+    fetch(`/api/v1/reviews/${editPayload.id}`, {
+      credentials: "same-origin",
+      method: "PATCH",
+      body: JSON.stringify(editPayload),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+           error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(updatedReview => {
+      debugger
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))    
+  }
+
   const fetchDeleteReview = (reviewID) => {
     fetch(`/api/v1/reviews/${reviewID}`, {
       credentials: "same-origin",
@@ -112,6 +138,7 @@ const GamesShowContainer = props => {
           id={review.id}
           rating={review.rating}
           comment={review.comment}
+          fetchUpdateReview={fetchUpdateReview}
           fetchDeleteReview={fetchDeleteReview}
         />
       )
