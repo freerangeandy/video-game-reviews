@@ -38,6 +38,31 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  const fetchDeleteReview = (reviewID) => {
+    fetch(`/api/v1/reviews/${reviewID}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }     
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+           error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(game => {
+      setReviews(game.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))  
+  }
+
   const fetchPostNewReview = (reviewPayload) => {
     fetch("/api/v1/reviews", {
       credentials: "same-origin",
@@ -47,7 +72,7 @@ const GamesShowContainer = props => {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    })   
+    })
     .then(response => {
       if (response.ok) {
         return response
@@ -67,27 +92,29 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  let newReviews = null
+  let allReviews = null
   if (reviews.length > 0) {
-    newReviews = reviews.map((review) => {
+    allReviews = reviews.map((review) => {
       return(
         <ReviewIndexTile
-        key={review.id}
-        rating={review.rating}
-        comment={review.comment}
+          key={review.id}
+          id={review.id}
+          rating={review.rating}
+          comment={review.comment}
+          fetchDeleteReview={fetchDeleteReview}
         />
       )
     })
   }
 
   return(
-    <div className="grid-container">
+    <div className="grid-container showbg">
       <GamesShowComponent game={game} />
-      <ReviewNewForm 
-        gameID={gameID} 
+      <ReviewNewForm
+        gameID={gameID}
         fetchPostNewReview={fetchPostNewReview}
       />
-      {newReviews}
+      {allReviews}
     </div>
   )
 }

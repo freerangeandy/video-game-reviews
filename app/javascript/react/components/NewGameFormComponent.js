@@ -60,33 +60,44 @@ const NewGameFormComponent = props => {
 
   return (
     <>
-      <h4>Add a new game to our review library!</h4>
-      <form className="callout" onSubmit={onSubmitHandler}>
-        <ErrorList errors={errors}/>
+      <div className="formtitle"><h4>Add a new game to our review library!</h4></div>
+      <div className="formdiv grid-x grid-margin-x">
+        <form className="callout cell small-12 medium-10 large-10" onSubmit={onSubmitHandler}>
+          <ErrorList errors={errors} />
 
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title" onChange={handleChange} value={newGameFormData.title} />
-  
-        <label htmlFor="description">Description</label>
-        <input type="text" name="description" id="description" onChange={handleChange} value={newGameFormData.description} />
-  
-        <label htmlFor="creater">Creator</label>
-        <input type="text" name="creater" id="creater" onChange={handleChange} value={newGameFormData.creater} />
+          <label htmlFor="title">Title</label>
+          <input type="text" name="title" id="title" onChange={handleChange} value={newGameFormData.title} />
 
-        <label htmlFor="platform">Platform</label>
-        <input type="text" name="platform" id="platform" onChange={handleChange} value={newGameFormData.platform} />
+          <label htmlFor="description">Description</label>
+          <textarea className="vertical" name="description" id="description" onChange={handleChange} value={newGameFormData.description} />
 
-        <label htmlFor="genre">Genre</label>
-        <input type="text" name="genre" id="genre" onChange={handleChange} value={newGameFormData.genre} />
+          <div className="grid-x grid-margin-x">
+            <div className="cell small-6">
+              <label htmlFor="creator">Creator</label>
+              <input type="text" name="creator" id="creator" onChange={handleChange} value={newGameFormData.creater} />
+            </div>
+            <div className="cell small-6">
+              <label htmlFor="platform">Platform</label>
+              <input type="text" name="platform" id="platform" onChange={handleChange} value={newGameFormData.platform} />
+            </div>
+          </div>
+          <div className="grid-x grid-margin-x">
+            <div className="cell small-6">
+              <label htmlFor="genre">Genre</label>
+              <input type="text" name="genre" id="genre" onChange={handleChange} value={newGameFormData.genre} />
+            </div>
+            <div className="cell small-6">
+              <label htmlFor="release_date">Release Date</label>
+              <input type="text" name="release_date" id="release_date" onChange={handleChange} value={newGameFormData.release_date} />
+            </div>
+          </div>
+ 
+          <label htmlFor="site">Website URL</label>
+          <input type="text" name="site" id="site" onChange={handleChange} value={newGameFormData.site} />
 
-        <label htmlFor="site">Website</label>
-        <input type="text" name="site" id="site" onChange={handleChange} value={newGameFormData.site} />
-
-        <label htmlFor="release_date">Release Date</label>
-        <input type="text" name="release_date" id="release_date" onChange={handleChange} value={newGameFormData.release_date} />
-
-        <input type="submit" value="Add new game" />
-      </form>
+          <input className="button" type="submit" value="Add new game" />
+        </form>
+      </div>
     </>
   )
 }
