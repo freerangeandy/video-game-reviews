@@ -38,6 +38,42 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  const fetchDeleteReview = (reviewID) => {
+    fetch(`/api/v1/reviews/${reviewID}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }     
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+           error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(deletedReview => {
+
+      const deletedReviewID = deletedReview.id
+      const deletedReviewIndex = reviews.findIndex((review) => {
+        return review.id === deletedReviewID
+      })
+
+      const newReviewList = [
+        ...reviews.slice(0,deletedReviewIndex), 
+        ...reviews.slice(deletedReviewIndex + 1)
+      ]
+
+      setReviews(newReviewList)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))  
+  }
+
   const fetchPostNewReview = (reviewPayload) => {
     fetch("/api/v1/reviews", {
       credentials: "same-origin",
@@ -67,14 +103,16 @@ const GamesShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  let newReviews = null
+  let allReviews = null
   if (reviews.length > 0) {
-    newReviews = reviews.map((review) => {
+    allReviews = reviews.map((review) => {
       return(
         <ReviewIndexTile
-        key={review.id}
-        rating={review.rating}
-        comment={review.comment}
+          key={review.id}
+          id={review.id}
+          rating={review.rating}
+          comment={review.comment}
+          fetchDeleteReview={fetchDeleteReview}
         />
       )
     })
@@ -87,7 +125,7 @@ const GamesShowContainer = props => {
         gameID={gameID} 
         fetchPostNewReview={fetchPostNewReview}
       />
-      {newReviews}
+      {allReviews}
     </div>
   )
 }
