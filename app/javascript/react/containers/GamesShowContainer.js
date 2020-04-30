@@ -47,7 +47,7 @@ const GamesShowContainer = props => {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    })   
+    })
     .then(response => {
       if (response.ok) {
         return response
@@ -81,10 +81,10 @@ const GamesShowContainer = props => {
   }
 
   return(
-    <div className="grid-container">
+    <div className="grid-container showbg">
       <GamesShowComponent game={game} />
-      <ReviewNewForm 
-        gameID={gameID} 
+      <ReviewNewForm
+        gameID={gameID}
         fetchPostNewReview={fetchPostNewReview}
       />
       {newReviews}

@@ -3,6 +3,7 @@ import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 import GamesIndexPane from "./GamesIndexPane"
 Enzyme.configure({ adapter: new Adapter() })
+import { BrowserRouter } from 'react-router-dom'
 
 describe("GamesIndexPane", () => {
   let wrapper
@@ -15,7 +16,9 @@ describe("GamesIndexPane", () => {
       { id: 3, title: "Mario" }
     ]
     wrapper = mount(
-      <GamesIndexPane gamesList={testGames} />
+      <BrowserRouter>
+        <GamesIndexPane gamesList={testGames} />
+      </BrowserRouter>
     )
   })
 

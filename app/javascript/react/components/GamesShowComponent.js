@@ -5,22 +5,18 @@ const GamesShowComponent = ({game}) => {
         number_of_players, site, release_date } = game
 
   return (
-    <div className="grid-x">
-      <div className="small-6">
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <img src={image}></img>
-      </div>
-      <div className="small-6">
-        <ul>
-          <p>Creator: {creator}</p>
-          <p>Platform: {platform}</p>
-          <p>Genre: {genre}</p>
-          <p>Player Setup: {number_of_players}</p>
-          <p>Site: {site}</p>
-          <p>Release Date: {release_date}</p>
-        </ul>
-      </div>
+    <div className="showtext">
+      <h3>Title: {title}</h3>
+      <img src={image}></img>
+      <ul>
+        <li>Description: {description}</li>
+        <li>Creator: {creator}</li>
+        <li>Platform: {platform}</li>
+        <li>Genre: {genre}</li>
+        <li>Player Setup: {number_of_players}</li>
+        <li>Release Date: {release_date}</li>
+        <li>Site: <a href={site}>{site}</a></li>
+      </ul>
     </div>
   )
 }
