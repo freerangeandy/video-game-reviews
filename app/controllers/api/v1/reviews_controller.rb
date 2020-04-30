@@ -14,7 +14,14 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
-  protected
+  def destroy
+    review = Review.find(params[:id])
+    game = review.game
+    review.delete
+    render json: game
+  end
+
+  private
 
   def reviews_params
     params.require(:review).permit(:rating, :comment, :game_id)
