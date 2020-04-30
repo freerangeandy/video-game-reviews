@@ -1,9 +1,12 @@
 class Api::V1::ReviewsController < ApplicationController
+  before_action :authorize_user
+
   def index
   end
 
   def create
     review = Review.new(reviews_params)
+    review.user = current_user
 
     if review.save
       render json: review
@@ -13,15 +16,23 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    review = Review.find(params[:id])
-    game = review.game
-    review.delete
-    render json: game
+    if current_user.reviews.exists?(params[:id])
+      review = Review.find(params[:id])
+      game = review.game
+      review.delete
+      render json: game
+    end
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 
   private
 
   def reviews_params
-    params.require(:review).permit(:rating, :comment, :game_id)
+    params.require(:review).permit(:rating, :comment, :game_id, :user_id)
   end
 end
