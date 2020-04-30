@@ -1,4 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
+  before_action :authorize_user, except: [:index, :show, :create]
+
   def index
   end
 
@@ -23,5 +25,11 @@ class Api::V1::ReviewsController < ApplicationController
 
   def reviews_params
     params.require(:review).permit(:rating, :comment, :game_id)
+  end
+
+  def authorize_user
+    if !user_signed_in || !current_user.admin?
+      render json: {error: "Not available"}
+    end
   end
 end
