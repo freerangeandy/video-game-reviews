@@ -57,19 +57,8 @@ const GamesShowContainer = props => {
       }
     })
     .then(response => response.json())
-    .then(deletedReview => {
-
-      const deletedReviewID = deletedReview.id
-      const deletedReviewIndex = reviews.findIndex((review) => {
-        return review.id === deletedReviewID
-      })
-
-      const newReviewList = [
-        ...reviews.slice(0,deletedReviewIndex), 
-        ...reviews.slice(deletedReviewIndex + 1)
-      ]
-
-      setReviews(newReviewList)
+    .then(game => {
+      setReviews(game.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))  
   }
