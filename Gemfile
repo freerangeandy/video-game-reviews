@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_model_serializers'
 
 group :development, :test do
-
 end
 
 group :development do
@@ -56,4 +55,5 @@ gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 
 gem "carrierwave"
+gem "fog-aws"
 gem "active_model_serializers"

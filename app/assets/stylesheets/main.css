@@ -49,3 +49,12 @@ p {
   margin: 1rem;
   margin-bottom: 2rem;
 }
+
+.user-pic-thumbnail {
+  width: 25px;
+  height: 25px;
+}
+
+.current-user {
+  float: right;
+}
