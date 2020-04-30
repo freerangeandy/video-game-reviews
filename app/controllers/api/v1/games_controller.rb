@@ -1,4 +1,6 @@
 class Api::V1::GamesController < ApplicationController
+  before_action :authorize_user, except: [:index, :show, :create]
+
   def index
     render json: Game.all
   end
@@ -17,10 +19,15 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def game_params
     params.require(:game).permit(:title, :image, :number_of_players, :description, :creator, :platform, :genre, :site, :release_date)
   end
 
+  def authorize_user
+    if !user_signed_in || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
+  end
 end
