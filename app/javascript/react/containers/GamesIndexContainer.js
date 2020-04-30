@@ -5,7 +5,7 @@ import NewGameFormComponent from "../components/NewGameFormComponent"
 
 const GamesIndexContainer = props => {
   const [games, setGames] = useState([])
-  
+
   useEffect(() => {
     fetch("/api/v1/games.json")
     .then((response) => {
@@ -55,7 +55,7 @@ const GamesIndexContainer = props => {
   }
 
   return (
-    <div className="grid-container game-index-margin">
+    <div className="grid-container game-index-margin gic">
       <GamesIndexPane gamesList={games} />
       <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
     </div>
