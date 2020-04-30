@@ -27,8 +27,7 @@ class Api::V1::GamesController < ApplicationController
 
   def authorize_user
     if !user_signed_in || !current_user.admin?
-      flash[:notice] = "You do not have access to this page."
-      redirect_to root_path
+      raise ActionController::RoutingError.new("Not Found")
     end
   end
 end
