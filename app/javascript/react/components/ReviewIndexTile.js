@@ -7,17 +7,19 @@ const ReviewIndexTile = (props) => {
     event.preventDefault()
     props.fetchDeleteReview(reviewID)
   }
-
+  let deleteButton
+  if (props.byCurrentUser) {
+    deleteButton = (<input
+      type="button"
+      value="delete"
+      onClick={onClickHandler}
+    />)
+  }
   return (
     <div>
       <h4>{props.rating}/5</h4>
       <p>{props.comment}</p>
-
-      <input
-        type="submit"
-        value="delete"
-        onClick={onClickHandler}
-      />
+      {deleteButton}
     </div>
   )
 }

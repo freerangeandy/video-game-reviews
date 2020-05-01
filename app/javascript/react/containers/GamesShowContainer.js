@@ -4,6 +4,9 @@ import ReviewIndexTile from "./../components/ReviewIndexTile"
 import ReviewNewForm from "./../components/ReviewNewForm"
 
 const GamesShowContainer = props => {
+  const [currentUser, setCurrentUser] = useState({
+    id: null
+  })
   const [reviews, setReviews] = useState([])
   const [game, setGame] = useState({
     title: "",
@@ -31,9 +34,12 @@ const GamesShowContainer = props => {
       }
     })
     .then(response => response.json())
-    .then(game => {
-      setGame(game)
-      setReviews(game.reviews)
+    .then(body => {
+      if (body.current_user !== null) {
+        setCurrentUser(body.current_user)
+      }
+      setGame(body.game)
+      setReviews(body.game.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -95,6 +101,7 @@ const GamesShowContainer = props => {
   let allReviews = null
   if (reviews.length > 0) {
     allReviews = reviews.map((review) => {
+      let reviewByCurrentUser = review.user_id === currentUser.id
       return(
         <ReviewIndexTile
           key={review.id}
@@ -102,6 +109,7 @@ const GamesShowContainer = props => {
           rating={review.rating}
           comment={review.comment}
           fetchDeleteReview={fetchDeleteReview}
+          byCurrentUser={reviewByCurrentUser}
         />
       )
     })
