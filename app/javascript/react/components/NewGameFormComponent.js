@@ -62,7 +62,7 @@ const NewGameFormComponent = props => {
     <>
       <div className="formtitle"><h4>Add a new game to our review library!</h4></div>
       <div className="formdiv grid-x grid-margin-x">
-        <form className="callout cell small-12 medium-10 large-10" onSubmit={onSubmitHandler}>
+        <form className="callout cell small-12 medium-10 large-10" id="form-id" onSubmit={onSubmitHandler}>
           <ErrorList errors={errors} />
 
           <label htmlFor="title">Title</label>

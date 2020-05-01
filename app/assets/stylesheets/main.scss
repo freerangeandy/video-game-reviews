@@ -8,6 +8,22 @@
 
 /*  GLOBAL STYLES */
 
+.right {
+  background-color: red;
+}
+
+#app {
+  background-color: #f35588;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-container {
+  display:grid;
+  padding: 25px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -30,13 +46,42 @@ nav {
     font-weight: 600;
 
     a {
-      color: $color4;
+      //color: $color4;
+      color: #fff591;
     }
   }
 }
 
+#welcome-box {
+  background-color: #a3f7bf;
+  border-radius: 15px;
+  align-content: center;
+  height: 100px;
+  margin-top: 20px;
+
+  h4 {
+    font-size: 100px;
+    //color: #fff591;
+    //color: #0000A0;
+    color: #035aa6;
+    font-family: VT323;
+    text-shadow: 3px 3px #000000;
+    // margin-left: 1rem;
+    // margin-right: 1rem;
+    // margin-bottom: 1rem;
+    // line-height: 1rem;
+    // font-size: x-large;
+    // font-weight: 800;
+    // //color: $color5;
+    // color: #fff591;
+    // font-family: VT323;
+    // text-shadow: 1px 1px #000000;
+  }
+}
+
 .top-bar {
-  background-color: $color2;
+  //background-color: $color2;
+  background-color: #05dfd7;
   padding: 1rem;
 }
 
@@ -52,9 +97,12 @@ nav {
 .game-tile {
   height: 300px;
   width: 200px;
-  background-color: $color3;
+  //background-color: $color3;
   margin: auto;
   border-radius: 15px;
+  background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
 
   img {
     margin-top: 1rem;
@@ -73,14 +121,26 @@ nav {
     line-height: 1rem;
     font-size: x-large;
     font-weight: 800;
-    color: $color5;
+    //color: $color5;
+    color: #fff591;
     font-family: VT323;
     text-shadow: 1px 1px #000000;
   }
 }
 
-.game-index-margin {
+.game-padded-border {
+  border: solid;
+}
+
+.game-index-margin { //box around all content on index page
   margin-top: 25px;
+  border: solid;
+  border-color: #a3f7bf;
+  border-radius: 15px;
+}
+
+#show-background {
+  background-color: #fff591;
 }
 
 .right {
@@ -117,6 +177,10 @@ a:hover {
   font-family: chalkduster;
   width: 100%;
   background-color: $color1;
+  border-radius: 15px;
+  //background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
 }
 
 .button:hover {
@@ -147,8 +211,13 @@ a:hover {
     text-shadow: 1px 1px #000000;
     font-family: chalkduster;
     margin: 3rem;
-    color: $color4;
+    //color: $color4;
+    color: #15DB95;
   }
+}
+
+#form-id {
+    background-color: #05dfd7;
 }
 
 .formdiv {
@@ -165,8 +234,23 @@ label {
   font-family: VT323;
   font-size: 30px;
   font-style: italic;
-  color: $color5;
+  //color: $color5;
   text-shadow: 1px 1px #000000;
+
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1rem;
+  //font-size: x-large;
+  font-weight: 800;
+  //color: $color5;
+  color: #fff591;
+  //font-family: VT323;
+  //text-shadow: 1px 1px #000000;
+
+
+
 }
 
 .log {
@@ -206,10 +290,31 @@ em {
   text-shadow: 1px 1px #000000;
 }
 
+.review-tile {
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
+}
+
 .showTitle {
+  // h3 {
+  //   font-family: VT323;
+  //   color: $color4;
+  //   text-shadow: 2px 2px black;
+  //   font-size: 50px;
+  //   text-align: center;
+  // }
+  background-color: #a3f7bf;
+  border-radius: 15px;
+  align-content: center;
+  height: 100px;
+  margin-top: 0px;
+
   h3 {
     font-family: VT323;
-    color: $color4;
+    color: #035aa6;
     text-shadow: 2px 2px black;
     font-size: 50px;
     text-align: center;
@@ -221,6 +326,10 @@ em {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
+
+    border: solid;
+    border-color: #a3f7bf; //new
+    border-radius: 15px; //new
 
   img {
     display: block;
@@ -261,7 +370,8 @@ em {
 .showbg {
   margin: 0;
   padding: 2rem;
-  background: #E5F3F4;
+  //background: #E5F3F4;
+  background: #f35588
 }
 
 .gic {

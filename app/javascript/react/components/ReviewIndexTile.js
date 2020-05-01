@@ -17,7 +17,7 @@ const ReviewIndexTile = (props) => {
     />)
   }
   return (
-    <div>
+    <div className="review-tile" >
       <h4>{props.rating}/5☆</h4>
       <p>{props.comment}</p>
       {deleteButton}

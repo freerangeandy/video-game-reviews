@@ -51,7 +51,7 @@ const GamesShowContainer = props => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      }     
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -66,7 +66,7 @@ const GamesShowContainer = props => {
     .then(game => {
       setReviews(game.reviews)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))  
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   const fetchPostNewReview = (reviewPayload) => {
@@ -116,7 +116,7 @@ const GamesShowContainer = props => {
   }
 
   return(
-    <div className="grid-container showbg">
+    <div className="grid-container game-index-margin showbg" id="show-background">
       <GamesShowComponent game={game} />
       <ReviewNewForm
         gameID={gameID}
