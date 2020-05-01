@@ -3,17 +3,20 @@ require "rails_helper"
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:game1) { FactoryBot.create(:game) }
   let!(:game2) { FactoryBot.create(:game) }
+  let!(:flimflam) { User.create(user_name: "flimflam", password: "2complex4u", password_confirmation: "2complex4u", email: "this@isntreal.com") }
 
   let!(:review1) { Review.create({
     rating: 3,
     comment: "Comment1",
-    game: game1
+    game: game1,
+    user: flimflam
   })}
 
   let!(:review1) { Review.create({
     rating: 5,
     comment: "Comment2",
-    game: game1
+    game: game1,
+    user: flimflam
   })}
 
   describe "POST#create" do
@@ -22,7 +25,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         review: {
           rating: 4,
           comment: "It's pretty good",
-          game_id: game1.id
+          game_id: game1.id,
+          user_id: flimflam.id
         }
       }
 
@@ -37,7 +41,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         review: {
           rating: 4,
           comment: "It's pretty good",
-          game_id: game1.id
+          game_id: game1.id,
+          user_id: flimflam.id
         }
       }
 
@@ -57,7 +62,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         review: {
           rating: "",
           comment: "It's pretty good",
-          game_id: game1.id
+          game_id: game1.id,
+          user_id: flimflam.id
         }
       }
 
@@ -77,7 +83,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         review: {
           rating: "N/A",
           comment: "It's pretty good",
-          game_id: game1.id
+          game_id: game1.id,
+          user_id: flimflam.id
         }
       }
 
@@ -97,7 +104,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         review: {
           rating: 7,
           comment: "It's pretty good",
-          game_id: game1.id
+          game_id: game1.id,
+          user_id: flimflam.id
         }
       }
 

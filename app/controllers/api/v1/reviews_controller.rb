@@ -6,6 +6,9 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     review = Review.new(reviews_params)
+    if !current_user.nil?
+      review.user = current_user
+    end
 
     if review.save
       render json: review
@@ -15,20 +18,22 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    review = Review.find(params[:id])
-    game = review.game
-    review.delete
-    render json: game
+    if current_user.reviews.exists?(params[:id])
+      review = Review.find(params[:id])
+      game = review.game
+      review.delete
+      render json: game
+    end
   end
 
   private
 
   def reviews_params
-    params.require(:review).permit(:rating, :comment, :game_id)
+    params.require(:review).permit(:rating, :comment, :game_id, :user_id)
   end
 
   def authorize_user
-    if !user_signed_in || !current_user.admin?
+    if !user_signed_in?
       render json: {error: "Not available"}
     end
   end

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let reactElement = document.getElementById('app')
 
   if (reactElement) {
-    if(window.railsEnv && window.railsEnv === 'development'){
+    if (window.railsEnv && window.railsEnv === 'development') {
       try {
         render(<App />, reactElement)
       } catch (e) {
