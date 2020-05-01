@@ -10,13 +10,14 @@ const ReviewIndexTile = (props) => {
   let deleteButton
   if (props.allowDeletion) {
     deleteButton = (<input
+      className="button"
       type="button"
       value="delete"
       onClick={onClickHandler}
     />)
   }
   return (
-    <div>
+    <div className="review-tile">
       <h4><span>{props.reviewUserName}: </span> {props.rating}/5</h4>
       <p>{props.comment}</p>
       {deleteButton}

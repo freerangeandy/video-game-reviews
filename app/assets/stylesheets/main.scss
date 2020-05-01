@@ -7,6 +7,19 @@
 }
 
 /*  GLOBAL STYLES */
+
+#app {
+  background-color: #f35588;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-container {
+  display:grid;
+  padding: 25px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,13 +42,42 @@ nav {
     font-weight: 600;
 
     a {
-      color: $color4;
+      //color: $color4;
+      color: #fff591;
     }
   }
 }
 
+#welcome-box {
+  background-color: #a3f7bf;
+  border-radius: 15px;
+  align-content: center;
+  height: 100px;
+  margin-top: 20px;
+
+  h4 {
+    font-size: 100px;
+    //color: #fff591;
+    //color: #0000A0;
+    color: #035aa6;
+    font-family: VT323;
+    text-shadow: 3px 3px #000000;
+    // margin-left: 1rem;
+    // margin-right: 1rem;
+    // margin-bottom: 1rem;
+    // line-height: 1rem;
+    // font-size: x-large;
+    // font-weight: 800;
+    // //color: $color5;
+    // color: #fff591;
+    // font-family: VT323;
+    // text-shadow: 1px 1px #000000;
+  }
+}
+
 .top-bar {
-  background-color: $color2;
+  //background-color: $color2;
+  background-color: #05dfd7;
   padding: 1rem;
 }
 
@@ -51,9 +93,12 @@ nav {
 .game-tile {
   height: 300px;
   width: 200px;
-  background-color: $color3;
+  //background-color: $color3;
   margin: auto;
   border-radius: 15px;
+  background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
 
   img {
     margin-top: 1rem;
@@ -72,15 +117,42 @@ nav {
     line-height: 1rem;
     font-size: x-large;
     font-weight: 800;
-    color: $color5;
+    //color: $color5;
+    color: #fff591;
     font-family: VT323;
     text-shadow: 1px 1px #000000;
   }
 }
 
-.game-index-margin {
-  margin-top: 25px;
+.game-padded-border {
+  border: solid;
 }
+
+.top-bar-section {
+  .right {
+    background-color: #05dfd7;
+  }
+}
+
+.game-index-margin { //box around all content on index page
+  margin-top: 25px;
+  border: solid;
+  border-color: #a3f7bf;
+  border-radius: 15px;
+  background-color: #fff591;
+}
+
+.sign {
+  background-color: #05dfd7;
+}
+
+#show-background {
+  background-color: #a3f7bf;
+}
+
+// #game-index-background {
+//   background-color: #fff591;
+// }
 
 .right {
   li {
@@ -101,8 +173,7 @@ li {
   a {
     text-shadow: 1px 1px #000000;
     font-family: chalkduster;
-    font-style: italic;
-    font-weight: 600;
+    font-weight: 500;
     color: $color1;
   }
 }
@@ -117,6 +188,10 @@ a:hover {
   font-family: chalkduster;
   width: 100%;
   background-color: $color1;
+  border-radius: 15px;
+  //background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
 }
 
 .button:hover {
@@ -147,8 +222,13 @@ a:hover {
     text-shadow: 1px 1px #000000;
     font-family: chalkduster;
     margin: 3rem;
-    color: $color4;
+    //color: $color4;
+    color: #15DB95;
   }
+}
+
+#form-id {
+    background-color: #05dfd7;
 }
 
 .formdiv {
@@ -165,8 +245,23 @@ label {
   font-family: VT323;
   font-size: 30px;
   font-style: italic;
-  color: $color5;
+  //color: $color5;
   text-shadow: 1px 1px #000000;
+
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1rem;
+  //font-size: x-large;
+  font-weight: 800;
+  //color: $color5;
+  color: #fff591;
+  //font-family: VT323;
+  //text-shadow: 1px 1px #000000;
+
+
+
 }
 
 .log {
@@ -206,32 +301,65 @@ em {
   text-shadow: 1px 1px #000000;
 }
 
-.showtext {
-  color: black;
-  font-family: VT323;
-  text-shadow: 1px 1px $color1;
-  font-size: 20px;
+.review-tile {
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: #05dfd7;
+  border: solid;
+  border-color: #a3f7bf;
+}
+
+.showTitle {
+  // h3 {
+  //   font-family: VT323;
+  //   color: $color4;
+  //   text-shadow: 2px 2px black;
+  //   font-size: 50px;
+  //   text-align: center;
+  // }
+  background-color: #fff591;
+  border-radius: 15px;
+  align-content: center;
+  height: 100px;
+  margin-top: 0px;
+
   h3 {
     font-family: VT323;
-    text-shadow: 2px 2px $color1;
-    font-size: 30px;
+    color: #035aa6;
+    text-shadow: 2px 2px black;
+    font-size: 50px;
     text-align: center;
-    margin-bottom: 1rem;
   }
+}
 
-  background: url("gamemachine.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  position: relative;
+.showImage {
+    background: url("gamemachine.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+
+    border: solid;
+    border-color: #a3f7bf; //new
+    border-radius: 15px; //new
 
   img {
     display: block;
-    width: 48%;
-    height: auto;
+    border-radius: 25px;
+    width: 600px;
+    height: 645px;
     overflow:hidden;
     margin: auto;
+    border: 20px;
+    padding: 60px;
+    padding-bottom: 200px;
   }
+}
 
+.showText  {
+  color: black;
+  font-family: VT323;
+  text-shadow: 1px 1px $color4;
+  font-size: 20px;
   ul {
     text-align: center;
   }
@@ -253,6 +381,9 @@ em {
 .showbg {
   margin: 0;
   padding: 2rem;
+  //background: #fff591;
+  //background: #f35588
+  //background-color: #a3f7bf;
 }
 
 .gic {
@@ -301,6 +432,20 @@ em {
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   color: $color5;
+
+  a {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1rem;
+    font-size: x-large;
+    font-weight: 800;
+    //color: $color5;
+    //color: #fff591;
+    //color: #fff591;
+    font-family: VT323;
+    text-shadow: 1px 1px #000000;
+  }
 }
 
 .flash {
@@ -310,4 +455,18 @@ em {
   font-style: italic;
   color: $color1;
   font-size: 20px;
+}
+
+h4 {
+  color: black;
+  font-family: VT323;
+  text-shadow: 1px 1px $color4;
+  font-size: 25px;
+}
+
+p {
+  color: black;
+  font-family: VT323;
+  text-shadow: 1px 1px $color4;
+  font-size: 25px;
 }

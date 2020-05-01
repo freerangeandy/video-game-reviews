@@ -46,13 +46,13 @@ const ReviewNewForm = (props) => {
       submitErrors = {
         ...submitErrors,
         rating: ratingErrors
-      }   
+      }
     }
 
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
-    
+
   return (
     <form onSubmit={formSubmit}>
       <ErrorList errors={errors}/>
@@ -79,7 +79,7 @@ const ReviewNewForm = (props) => {
         />
       </label>
 
-      <input type="submit" value="Submit" />
+      <input className="button" type="submit" value="Submit" />
     </form>
   )
 }

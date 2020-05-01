@@ -11,7 +11,7 @@ const GamesIndexPane  = props => {
   })
 
   return (
-    <div className="grid-x grid-margin-x grid-margin-y">
+    <div className="grid-x grid-margin-x grid-margin-y" id="game-index-background">
       {gameTiles}
     </div>
   )

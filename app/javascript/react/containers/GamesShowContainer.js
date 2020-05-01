@@ -126,7 +126,7 @@ const GamesShowContainer = props => {
   }
 
   return(
-    <div className="grid-container showbg">
+    <div className="grid-container game-index-margin showbg" id="show-background">
       <GamesShowComponent game={game} />
       {formOrNot}
       {allReviews}

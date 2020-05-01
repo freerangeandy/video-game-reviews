@@ -80,9 +80,14 @@ const GamesIndexContainer = props => {
   }
 
   return (
-    <div className="grid-container game-index-margin gic">
-      <GamesIndexPane gamesList={games} />
-      {formOrNot}
+    <div>
+      <div id="welcome-box" className="grid-container">
+        <h4>WELCOME GAME REVIEW HERO</h4>
+      </div>
+      <div className="grid-container game-index-margin gic">
+        <GamesIndexPane gamesList={games} />
+        {formOrNot}
+      </div>
     </div>
   )
 }
