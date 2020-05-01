@@ -8,9 +8,9 @@ const GamesShowComponent = ({game}) => {
     <>
     <div className="showTitle">
       <h3>{title}</h3>
-    <div className="showImage">
-      <img src={image}></img>
     </div>
+    <div className="showImage">
+    <img src={image}></img>
     </div>
     <div>
       <ul className="showText">

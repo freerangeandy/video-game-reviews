@@ -8,10 +8,6 @@
 
 /*  GLOBAL STYLES */
 
-.right {
-  background-color: red;
-}
-
 #app {
   background-color: #f35588;
   display:flex;
@@ -132,16 +128,31 @@ nav {
   border: solid;
 }
 
+.top-bar-section {
+  .right {
+    background-color: #05dfd7;
+  }
+}
+
 .game-index-margin { //box around all content on index page
   margin-top: 25px;
   border: solid;
   border-color: #a3f7bf;
   border-radius: 15px;
+  background-color: #fff591;
+}
+
+.sign {
+  background-color: #05dfd7;
 }
 
 #show-background {
-  background-color: #fff591;
+  background-color: #a3f7bf;
 }
+
+// #game-index-background {
+//   background-color: #fff591;
+// }
 
 .right {
   li {
@@ -306,7 +317,7 @@ em {
   //   font-size: 50px;
   //   text-align: center;
   // }
-  background-color: #a3f7bf;
+  background-color: #fff591;
   border-radius: 15px;
   align-content: center;
   height: 100px;
@@ -370,8 +381,9 @@ em {
 .showbg {
   margin: 0;
   padding: 2rem;
-  //background: #E5F3F4;
-  background: #f35588
+  //background: #fff591;
+  //background: #f35588
+  //background-color: #a3f7bf;
 }
 
 .gic {
@@ -414,7 +426,37 @@ em {
   margin: 2rem;
 }
 
-<<<<<<< HEAD
+.sign-in-message {
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color5;
+
+  a {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1rem;
+    font-size: x-large;
+    font-weight: 800;
+    //color: $color5;
+    //color: #fff591;
+    //color: #fff591;
+    font-family: VT323;
+    text-shadow: 1px 1px #000000;
+  }
+}
+
+.flash {
+  text-shadow: 0.5px 0.5px #000000;
+  margin: 1rem 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color1;
+  font-size: 20px;
+}
+
 h4 {
   color: black;
   font-family: VT323;
@@ -427,21 +469,4 @@ p {
   font-family: VT323;
   text-shadow: 1px 1px $color4;
   font-size: 25px;
-=======
-.sign-in-message {
-  text-align: center;
-  font-size: 60px;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  color: $color5;
-}
-
-.flash {
-  text-shadow: 0.5px 0.5px #000000;
-  margin: 1rem 2rem;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  color: $color1;
-  font-size: 20px;
->>>>>>> 37679cd44b3981a587056539ae5c11956741d9ca
 }

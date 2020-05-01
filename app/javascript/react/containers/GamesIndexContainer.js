@@ -80,20 +80,14 @@ const GamesIndexContainer = props => {
   }
 
   return (
-<<<<<<< HEAD
     <div>
       <div id="welcome-box" className="grid-container">
         <h4>WELCOME GAME REVIEW HERO</h4>
       </div>
       <div className="grid-container game-index-margin gic">
         <GamesIndexPane gamesList={games} />
-        <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
+        {formOrNot}
       </div>
-=======
-    <div className="grid-container game-index-margin gic">
-      <GamesIndexPane gamesList={games} />
-      {formOrNot}
->>>>>>> 37679cd44b3981a587056539ae5c11956741d9ca
     </div>
   )
 }
