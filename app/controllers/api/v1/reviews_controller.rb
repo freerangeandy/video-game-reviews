@@ -6,7 +6,9 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     review = Review.new(reviews_params)
-    review.user = current_user
+    if !current_user.nil?
+      review.user = current_user
+    end
 
     if review.save
       render json: review
@@ -24,12 +26,6 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
-  def authorize_user
-    if !user_signed_in?
-      raise ActionController::RoutingError.new("Not Found")
-    end
-  end
-
   private
 
   def reviews_params
@@ -37,7 +33,7 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def authorize_user
-    if !user_signed_in || !current_user.admin?
+    if !user_signed_in?
       render json: {error: "Not available"}
     end
   end

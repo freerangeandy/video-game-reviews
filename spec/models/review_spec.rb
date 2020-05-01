@@ -2,14 +2,15 @@ require 'rails_helper'
 
 describe Review do
   let!(:mario) { Game.create(title: "Super Mario Galaxy") }
+  let!(:flimflam) { User.create(user_name: "flimflam", password: "2complex4u", password_confirmation: "2complex4u", email: "this@isntreal.com") }
 
   let!(:review_blank) { Review.new }
   let!(:review_rating) { Review.create(rating: 3) }
-  let!(:review_rating_comment) { Review.create(rating: 2, comment: "Bad game.") }
-  let!(:review_no_comment) {Review.create(rating: 1, game: mario) }
+  let!(:review_rating_comment) { Review.create(rating: 2, comment: "Bad game.", user: flimflam) }
+  let!(:review_no_comment) {Review.create(rating: 1, game: mario, user: flimflam) }
 
-  let!(:review1) { Review.create(rating: 4, comment: "Good game.", game: mario) }
-  let!(:review2) { Review.create(rating: 5, comment: "Great game.", game: mario) }
+  let!(:review1) { Review.create(rating: 4, comment: "Good game.", game: mario, user: flimflam) }
+  let!(:review2) { Review.create(rating: 5, comment: "Great game.", game: mario, user: flimflam) }
 
   describe "review model correctly validates" do
     it "blank review is not valid" do

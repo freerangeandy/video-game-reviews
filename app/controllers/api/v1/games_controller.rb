@@ -6,7 +6,11 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def show
-    render json: Game.find(params[:id])
+    game = Game.find(params[:id])
+    render json: { 
+      game: serialized_data(game, GameSerializer), 
+      current_user: current_user
+    }
   end
 
   def create
@@ -17,6 +21,10 @@ class Api::V1::GamesController < ApplicationController
     else
       render json: {error: game.errors.full_messages.to_sentence}
     end
+  end
+
+  def serialized_data(data, serializer)
+    ActiveModelSerializers::SerializableResource.new(data, serializer: serializer)
   end
 
   protected
@@ -30,4 +38,5 @@ class Api::V1::GamesController < ApplicationController
       raise ActionController::RoutingError.new("Not Found")
     end
   end
+
 end

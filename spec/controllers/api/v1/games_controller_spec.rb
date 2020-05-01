@@ -37,16 +37,16 @@ RSpec.describe Api::V1::GamesController, type: :controller do
       get :show, params: {id: game1.id}
       returned_json = JSON.parse(response.body)
 
-      expect(returned_json.length).to eq 11
-      expect(returned_json["title"]).to eq game1.title
-      expect(returned_json["image"]).to eq game1.image
-      expect(returned_json["number_of_players"]).to eq game1.number_of_players
-      expect(returned_json["description"]).to eq game1.description
-      expect(returned_json["creator"]).to eq game1.creator
-      expect(returned_json["platform"]).to eq game1.platform
-      expect(returned_json["genre"]).to eq game1.genre
-      expect(returned_json["site"]).to eq game1.site
-      expect(returned_json["release_date"]).to eq game1.release_date
+      expect(returned_json["game"].length).to eq 11
+      expect(returned_json["game"]["title"]).to eq game1.title
+      expect(returned_json["game"]["image"]).to eq game1.image
+      expect(returned_json["game"]["number_of_players"]).to eq game1.number_of_players
+      expect(returned_json["game"]["description"]).to eq game1.description
+      expect(returned_json["game"]["creator"]).to eq game1.creator
+      expect(returned_json["game"]["platform"]).to eq game1.platform
+      expect(returned_json["game"]["genre"]).to eq game1.genre
+      expect(returned_json["game"]["site"]).to eq game1.site
+      expect(returned_json["game"]["release_date"]).to eq game1.release_date
     end
   end
 
