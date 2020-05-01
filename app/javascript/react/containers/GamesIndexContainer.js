@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 
 import GamesIndexPane from "../components/GamesIndexPane"
 import NewGameFormComponent from "../components/NewGameFormComponent"
 
 const GamesIndexContainer = props => {
+  const [user, setUser] = useState({})
   const [games, setGames] = useState([])
+
+  useEffect(() => {
+    fetch("/api/v1/users/:id.json")
+    .then((response) => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        let error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json() )
+    .then(user => {
+      setUser(user)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
 
   useEffect(() => {
     fetch("/api/v1/games.json")
@@ -54,10 +74,15 @@ const GamesIndexContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  let formOrNot = <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
+  if (user === null) {
+    formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to add new games to review!</a></div>
+  }
+
   return (
     <div className="grid-container game-index-margin gic">
       <GamesIndexPane gamesList={games} />
-      <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
+      {formOrNot}
     </div>
   )
 }

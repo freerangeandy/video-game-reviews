@@ -18,7 +18,9 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    if current_user.reviews.exists?(params[:id])
+    is_admin = current_user.role == "admin"
+    review_by_current_user = current_user.reviews.exists?(params[:id])
+    if review_by_current_user || is_admin
       review = Review.find(params[:id])
       game = review.game
       review.delete

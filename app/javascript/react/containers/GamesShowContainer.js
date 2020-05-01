@@ -5,7 +5,8 @@ import ReviewNewForm from "./../components/ReviewNewForm"
 
 const GamesShowContainer = props => {
   const [currentUser, setCurrentUser] = useState({
-    id: null
+    id: null,
+    role: "visitor"
   })
   const [reviews, setReviews] = useState([])
   const [game, setGame] = useState({
@@ -51,7 +52,7 @@ const GamesShowContainer = props => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      }     
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -66,7 +67,7 @@ const GamesShowContainer = props => {
     .then(game => {
       setReviews(game.reviews)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))  
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   const fetchPostNewReview = (reviewPayload) => {
@@ -101,27 +102,33 @@ const GamesShowContainer = props => {
   let allReviews = null
   if (reviews.length > 0) {
     allReviews = reviews.map((review) => {
-      let reviewByCurrentUser = review.user_id === currentUser.id
+      const reviewByCurrentUser = review.user_id === currentUser.id
+      const adminLoggedIn = currentUser.role === "admin"
+      const allowDeletion = reviewByCurrentUser || adminLoggedIn
+
       return(
         <ReviewIndexTile
           key={review.id}
           id={review.id}
+          reviewUserName={review.user_name}
           rating={review.rating}
           comment={review.comment}
           fetchDeleteReview={fetchDeleteReview}
-          byCurrentUser={reviewByCurrentUser}
+          allowDeletion={allowDeletion}
         />
       )
     })
   }
 
+  let formOrNot = <ReviewNewForm gameID={gameID} fetchPostNewReview={fetchPostNewReview} />
+  if (currentUser.id === null) {
+    formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to add new review!</a></div>
+  }
+
   return(
     <div className="grid-container showbg">
       <GamesShowComponent game={game} />
-      <ReviewNewForm
-        gameID={gameID}
-        fetchPostNewReview={fetchPostNewReview}
-      />
+      {formOrNot}
       {allReviews}
     </div>
   )

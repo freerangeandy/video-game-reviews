@@ -294,3 +294,20 @@ em {
 .user-reviews {
   margin: 2rem;
 }
+
+.sign-in-message {
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color5;
+}
+
+.flash {
+  text-shadow: 0.5px 0.5px #000000;
+  margin: 1rem 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color1;
+  font-size: 20px;
+}
