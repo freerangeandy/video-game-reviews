@@ -29,15 +29,44 @@ const UserShowContainer = (props) => {
     .then(response => response.json())
     .then(user => {
       setUser(user)
-      // setReviews(user.reviews)
+      setReviews(user.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  const fetchDeleteReview = (reviewID) => {
+    fetch(`/api/v1/reviews/${reviewID}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+           error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(game => {
+      let newReviewList = reviews.filter((item) => {
+        const keepReview = (item.id !== reviewID)
+        return keepReview
+      })
+      setReviews(newReviewList)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   return (
     <>
       <UserProfileComponent user={user} />
-      <UserReviewsComponent reviews={reviews} />
+      <UserReviewsComponent reviews={reviews} fetchDeleteReview={fetchDeleteReview} />
     </>
   )
 }

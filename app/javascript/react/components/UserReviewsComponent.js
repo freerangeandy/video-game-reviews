@@ -3,31 +3,6 @@ import ReviewIndexTile from "./ReviewIndexTile"
 
 const UserReviewsComponent = props => {
 
-  const fetchDeleteReview = (reviewID) => {
-    fetch(`/api/v1/reviews/${reviewID}`, {
-      credentials: "same-origin",
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-           error = new Error(errorMessage)
-        throw error
-      }
-    })
-    .then(response => response.json())
-    .then(game => {
-      setReviews(game.reviews)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }
-
   let allReviews = null
   if (props.reviews.length > 0) {
     allReviews = props.reviews.map((review) => {
@@ -37,16 +12,22 @@ const UserReviewsComponent = props => {
           id={review.id}
           rating={review.rating}
           comment={review.comment}
-          fetchDeleteReview={fetchDeleteReview}
+          byCurrentUser={true}
+          fetchDeleteReview={props.fetchDeleteReview}
         />
       )
     })
   }
 
+  let rev = "reviews"
+  if (props.reviews.length === 1) {
+    rev = "review"
+  }
+
   return (
     <>
       <div className="user-reviews">
-        <h3>You have written {props.reviews.length} reviews!</h3>
+        <h3>You have written {props.reviews.length} {rev}!</h3>
         {allReviews}
       </div>
     </>
