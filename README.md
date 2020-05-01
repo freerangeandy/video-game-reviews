@@ -4,7 +4,7 @@
 
 Game Review Hero - An approachable website for users to post reviews for video games
 
-Visit us: https://vgjamba.herokuapp.com/
+Visit us: https://gamereviewhero.herokuapp.com/
 
 Authors: Andy Lee, Monika Wilson, Benjamin Fairbank, Justin Stransky
 
@@ -14,7 +14,7 @@ Visitors to the site can see a list of games that have been submitted. A signed-
 ## About
 This web app was built in Ruby on Rails and React.
 
-The gem "make_it_so" was used as a starting point for the app. This allows for default gems allowing Rspec, Devise, Postgres, Foundation, React and Jest among others. All the dependencies are in the Gemfile. In addition to the make_it_so gems, these three gems were added to the Gemfile. 
+The gem "make_it_so" was used as a starting point for the app. This allows for default gems allowing Rspec, Devise, Postgres, Foundation, React and Jest among others. All the dependencies are in the Gemfile. In addition to the make_it_so gems, these three gems were added to the Gemfile.
 
 gem "carrierwave"
 gem "fog-aws"
