@@ -414,6 +414,7 @@ em {
   margin: 2rem;
 }
 
+<<<<<<< HEAD
 h4 {
   color: black;
   font-family: VT323;
@@ -426,4 +427,21 @@ p {
   font-family: VT323;
   text-shadow: 1px 1px $color4;
   font-size: 25px;
+=======
+.sign-in-message {
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color5;
+}
+
+.flash {
+  text-shadow: 0.5px 0.5px #000000;
+  margin: 1rem 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: $color1;
+  font-size: 20px;
+>>>>>>> 37679cd44b3981a587056539ae5c11956741d9ca
 }

@@ -5,7 +5,8 @@ import ReviewNewForm from "./../components/ReviewNewForm"
 
 const GamesShowContainer = props => {
   const [currentUser, setCurrentUser] = useState({
-    id: null
+    id: null,
+    role: "visitor"
   })
   const [reviews, setReviews] = useState([])
   const [game, setGame] = useState({
@@ -101,15 +102,19 @@ const GamesShowContainer = props => {
   let allReviews = null
   if (reviews.length > 0) {
     allReviews = reviews.map((review) => {
-      let reviewByCurrentUser = review.user_id === currentUser.id
+      const reviewByCurrentUser = review.user_id === currentUser.id
+      const adminLoggedIn = currentUser.role === "admin"
+      const allowDeletion = reviewByCurrentUser || adminLoggedIn
+
       return(
         <ReviewIndexTile
           key={review.id}
           id={review.id}
+          reviewUserName={review.user_name}
           rating={review.rating}
           comment={review.comment}
           fetchDeleteReview={fetchDeleteReview}
-          byCurrentUser={reviewByCurrentUser}
+          allowDeletion={allowDeletion}
         />
       )
     })
