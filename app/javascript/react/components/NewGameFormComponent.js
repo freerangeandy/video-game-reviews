@@ -3,27 +3,22 @@ import _ from 'lodash'
 import ErrorList from "../components/ErrorList"
 
 const NewGameFormComponent = props => {
-  const [errors, setErrors] = useState({})
-  const [newGameFormData, setNewGameFormData] = useState({
+  const defaultFormData = {
     title: "",
+    image: "",
     description: "",
-    creater: "",
+    creator: "",
     platform: "",
     genre: "",
     site: "",
     release_date: ""
-  })
+  }
+
+  const [errors, setErrors] = useState({})
+  const [newGameFormData, setNewGameFormData] = useState(defaultFormData)
 
   const clearFormData = () => {
-    setNewGameFormData({
-      title: "",
-      description: "",
-      creater: "",
-      platform: "",
-      genre: "",
-      site: "",
-      release_date: ""
-    })
+    setNewGameFormData(defaultFormData)
     setErrors({})
   }
 
@@ -67,6 +62,9 @@ const NewGameFormComponent = props => {
 
           <label htmlFor="title">Title</label>
           <input type="text" name="title" id="title" onChange={handleChange} value={newGameFormData.title} />
+
+            <label htmlFor="image">Image (url)</label>
+            <input type="text" name="image" id="image" onChange={handleChange} value={newGameFormData.image} />
 
           <label htmlFor="description">Description</label>
           <textarea className="vertical" name="description" id="description" onChange={handleChange} value={newGameFormData.description} />
