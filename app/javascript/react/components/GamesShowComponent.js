@@ -2,7 +2,7 @@ import React from 'react'
 
 const GamesShowComponent = ({game}) => {
   const { title, image, description, creator, platform, genre,
-        number_of_players, site, release_date } = game
+    number_of_players, site, release_date } = game
 
   return (
     <div className="showtext">
