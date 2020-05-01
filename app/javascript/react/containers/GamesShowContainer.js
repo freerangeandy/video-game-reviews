@@ -120,13 +120,15 @@ const GamesShowContainer = props => {
     })
   }
 
+  let formOrNot = <ReviewNewForm gameID={gameID} fetchPostNewReview={fetchPostNewReview} />
+  if (currentUser.id === null) {
+    formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to add new review!</a></div>
+  }
+
   return(
     <div className="grid-container showbg">
       <GamesShowComponent game={game} />
-      <ReviewNewForm
-        gameID={gameID}
-        fetchPostNewReview={fetchPostNewReview}
-      />
+      {formOrNot}
       {allReviews}
     </div>
   )
