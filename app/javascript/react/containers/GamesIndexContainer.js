@@ -82,7 +82,7 @@ const GamesIndexContainer = props => {
   return (
     <div>
       <div id="welcome-box" className="grid-container">
-        <h4>WELCOME GAME REVIEW HERO</h4>
+        <h4>WELCOME TO GAME REVIEW HERO</h4>
       </div>
       <div className="grid-container game-index-margin gic">
         <GamesIndexPane gamesList={games} />
