@@ -110,6 +110,7 @@ const GamesShowContainer = props => {
         <ReviewIndexTile
           key={review.id}
           id={review.id}
+          reviewUserName={review.user_name}
           rating={review.rating}
           comment={review.comment}
           fetchDeleteReview={fetchDeleteReview}
