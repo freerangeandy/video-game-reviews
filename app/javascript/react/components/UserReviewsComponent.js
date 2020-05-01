@@ -1,7 +1,8 @@
 import React, { Fragment } from "react"
+import ReviewIndexTile from "./ReviewIndexTile"
 
 const UserReviewsComponent = props => {
-  
+
   const fetchDeleteReview = (reviewID) => {
     fetch(`/api/v1/reviews/${reviewID}`, {
       credentials: "same-origin",
