@@ -7,6 +7,7 @@
 }
 
 /*  GLOBAL STYLES */
+
 body {
   margin: 0;
   padding: 0;
@@ -101,8 +102,7 @@ li {
   a {
     text-shadow: 1px 1px #000000;
     font-family: chalkduster;
-    font-style: italic;
-    font-weight: 600;
+    font-weight: 500;
     color: $color1;
   }
 }
@@ -224,12 +224,12 @@ em {
 
   img {
     display: block;
+    border-radius: 25px;
     width: 600px;
     height: 645px;
     overflow:hidden;
     margin: auto;
     border: 20px;
-    border-radius: 25px;
     padding: 60px;
     padding-bottom: 200px;
   }
@@ -261,6 +261,7 @@ em {
 .showbg {
   margin: 0;
   padding: 2rem;
+  background: #E5F3F4;
 }
 
 .gic {
@@ -301,4 +302,18 @@ em {
 
 .user-reviews {
   margin: 2rem;
+}
+
+h4 {
+  color: black;
+  font-family: VT323;
+  text-shadow: 1px 1px $color4;
+  font-size: 25px;
+}
+
+p {
+  color: black;
+  font-family: VT323;
+  text-shadow: 1px 1px $color4;
+  font-size: 25px;
 }
