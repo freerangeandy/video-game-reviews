@@ -8,7 +8,7 @@ const ReviewIndexTile = (props) => {
     props.fetchDeleteReview(reviewID)
   }
   let deleteButton
-  if (props.byCurrentUser) {
+  if (props.allowDeletion) {
     deleteButton = (<input
       type="button"
       value="delete"
