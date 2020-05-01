@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 
 import GamesIndexPane from "../components/GamesIndexPane"
 import NewGameFormComponent from "../components/NewGameFormComponent"
@@ -73,11 +74,9 @@ const GamesIndexContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  let formOrNot
+  let formOrNot = <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
   if (user === null) {
     formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to write a new review!</a></div>
-  } else {
-    formOrNot = <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
   }
 
   return (

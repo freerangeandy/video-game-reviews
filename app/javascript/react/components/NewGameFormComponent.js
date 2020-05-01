@@ -63,8 +63,8 @@ const NewGameFormComponent = props => {
           <label htmlFor="title">Title</label>
           <input type="text" name="title" id="title" onChange={handleChange} value={newGameFormData.title} />
 
-            <label htmlFor="image">Image (url)</label>
-            <input type="text" name="image" id="image" onChange={handleChange} value={newGameFormData.image} />
+          <label htmlFor="image">Image (url)</label>
+          <input type="text" name="image" id="image" onChange={handleChange} value={newGameFormData.image} />
 
           <label htmlFor="description">Description</label>
           <textarea className="vertical" name="description" id="description" onChange={handleChange} value={newGameFormData.description} />
