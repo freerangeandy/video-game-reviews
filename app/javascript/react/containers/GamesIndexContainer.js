@@ -76,7 +76,7 @@ const GamesIndexContainer = props => {
 
   let formOrNot = <NewGameFormComponent fetchPostNewGame={fetchPostNewGame} />
   if (user === null) {
-    formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to add new games!</a></div>
+    formOrNot = <div className="sign-in-message"><a href="/users/sign_in">Sign in here to add new games to review!</a></div>
   }
 
   return (
